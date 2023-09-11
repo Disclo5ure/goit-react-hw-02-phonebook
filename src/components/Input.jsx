@@ -4,7 +4,7 @@ export const Input = props => (
   <input
     type={props.type}
     name={props.name}
-    // pattern={props.pattern}
+    pattern={props.pattern}
     title={props.title}
     required
   />
@@ -15,5 +15,5 @@ Input.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   title: PropTypes.string,
-  // pattern: PropTypes.string,
+  pattern: PropTypes.string,
 };
