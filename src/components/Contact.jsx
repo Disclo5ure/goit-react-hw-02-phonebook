@@ -8,5 +8,5 @@ export const Contact = props => (
 
 Contact.propTypes = {
   name: PropTypes.string,
-  number: PropTypes.number,
+  number: PropTypes.string,
 };
