@@ -5,8 +5,7 @@ export const Contact = props => (
     {props.name}: {props.number}
     <button
       className="delete-button"
-      data-name={props.name}
-      onClick={props.handleDelete}
+      onClick={() => props.handleDelete(props.name)}
     >
       Delete
     </button>

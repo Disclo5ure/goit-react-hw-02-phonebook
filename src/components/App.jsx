@@ -37,8 +37,7 @@ export class App extends React.Component {
       contact.name.toLowerCase().includes(this.state.filter)
     );
 
-  handleDelete = e => {
-    const name = e.target.dataset.name;
+  handleDelete = name => {
     const newContacts = this.state.contacts.filter(
       contact => contact.name !== name
     );
@@ -55,14 +54,12 @@ export class App extends React.Component {
             name="name"
             type="text"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           />
           <h3>Number</h3>
           <Input
             name="number"
             type="tel"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           />
           <button type="submit" className="button">
             Add contact
