@@ -9,6 +9,7 @@ export const ContactList = props => (
             key={contact.id}
             name={contact.name}
             number={contact.number}
+            handleDelete={props.handleDelete}
           />
         ))
       : null}
