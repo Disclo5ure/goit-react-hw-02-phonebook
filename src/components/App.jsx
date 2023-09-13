@@ -15,17 +15,23 @@ export class App extends React.Component {
     const form = e.currentTarget;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    let contacts = this.state.contacts;
     if (
-      contacts.find(
+      this.state.contacts.find(
         contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     )
       alert(`${name} is already in contacts.`);
     else {
-      contacts.push({ name: name, number: number, id: nanoid() });
-      this.setState({ contacts: contacts });
+      this.setState(prev => {
+        return {
+          contacts: [
+            ...prev.contacts,
+            { name: name, number: number, id: nanoid() },
+          ],
+        };
+      });
     }
+    form.reset();
   };
 
   handleFilter = e => {
@@ -41,7 +47,11 @@ export class App extends React.Component {
     const newContacts = this.state.contacts.filter(
       contact => contact.name !== name
     );
-    this.setState({ contacts: newContacts });
+    this.setState(prev => {
+      return {
+        contacts: prev.contacts.filter(contact => contact.name !== name),
+      };
+    });
   };
 
   render() {
