@@ -44,9 +44,6 @@ export class App extends React.Component {
     );
 
   handleDelete = name => {
-    const newContacts = this.state.contacts.filter(
-      contact => contact.name !== name
-    );
     this.setState(prev => {
       return {
         contacts: prev.contacts.filter(contact => contact.name !== name),
